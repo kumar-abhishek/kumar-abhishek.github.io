@@ -1,3 +1,8 @@
+---
+layout: post
+title: "Using Apache Tika to convert a MS word or doc or pdf file to a txt file(plain text)"
+date: 2009-06-07
+---
 <div dir="ltr" style="text-align: left;" trbidi="on">
 
 <div style="border: 1px solid; overflow-x: scroll; padding: 1em;">  
