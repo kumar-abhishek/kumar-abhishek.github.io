@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sending emails to Gmail in bulk with attachments put in a directory"
+title: "Fetching emails and their attachments from gmail using python"
 date: 2009-06-07
 ---
 <div dir="ltr" style="text-align: left;" trbidi="on">
