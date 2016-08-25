@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "extending ssh logged in sessions for remote servers"
+title: "Extending ssh logged in sessions for remote servers"
 date: 2009-08-23
 ---
 <div dir="ltr" style="text-align: left;" trbidi="on">Many a times, after sshing to a remote server, the connection automatically dies after a few minutes of inactivity. These are few workarounds to overcome this problem:  
