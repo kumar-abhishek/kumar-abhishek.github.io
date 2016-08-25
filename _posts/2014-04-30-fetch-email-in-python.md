@@ -1,3 +1,8 @@
+---
+layout: post
+title: "Sending emails to Gmail in bulk with attachments put in a directory"
+date: 2009-06-07
+---
 <div dir="ltr" style="text-align: left;" trbidi="on">
 
 <div style="border: 1px solid; overflow-x: scroll; padding: 1em;">  
