@@ -4,7 +4,9 @@ title: "How to make people laugh"
 date: 2014-12-29
 ---
 
-<h4>My notes from the book : How to make people laugh </h4>
+<h5>My notes from the book : How to make people laugh </h5>
+<br>
+
 1. Read jokes: 
     * Make a note of them somewhere
     * get their gist so that you could recall them easily later<br>
