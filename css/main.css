@@ -21,8 +21,6 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em;  margin-top: -180px;}
 footer {
   position: relative;
   margin-top: -180px; 
-  height: 180px;
-  clear: both;
   font-size: .8em;
 }
 
