@@ -19,9 +19,9 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em;  margin-top: -180px;}
  
 */
 footer {
-  position: relative;
-  margin-top: -180px; 
-  font-size: .8em;
+ position:fixed;
+ bottom:0;
+ left:0;
 }
 
 
