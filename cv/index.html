@@ -5,19 +5,9 @@ title: Contact Kumar
 
 Please email me at kr.abhish@gmail.com or use the following form to send me a message.
 
-<form action="" method="post">   <input type="hidden" value="kr.abhish@gmail.com" name="send_to" />
-   <input type="hidden" value="no-reply@test.com" name="send_from" />
-   <input type="hidden" value="thank-you.html" name="redirect" />
-   <input type="hidden" value="Contact Form Submission" name="subject" />
-
-   <p>Name<br />
-   <input type="text" name="name" /></p>
-
-   <p>Email<br />
-   <input type="text" name="email" /></p>
-
-   <p>Message<br />
-   <textarea type="textarea" name="message"></textarea></p>
-
-   <input type="submit" value="Submit" />
+<form action="http://formspree.io/kr.abhish@gmail.com">
+   <input type="email" name="_replyto">
+   <textarea name="body"></textarea>
+   <input type="submit" value="Send">
 </form>
+
