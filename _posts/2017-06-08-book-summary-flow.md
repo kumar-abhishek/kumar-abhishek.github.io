@@ -6,6 +6,8 @@ date: 2017-06-08
 
 ### [Flow: The Psychology of Optimal Experience by Mihaly Csikszentmihalyi book/ted-talk notes](https://www.youtube.com/watch?v=fXIeFJCqsPs)
 
+![Flow book](http://t3.gstatic.com/images?q=tbn:ANd9GcQwmPYPbxmREKLvc1-yRqsBgKCBmoUsUijvgXYpVFS1DvUgRm7F =105x160)
+
 In the ted talk & the book, Mihaly explains the concept of Flow. He tries to define it as an answer to the question of what makes people happy. When a great musician composes music, he experiences awe and wonderment. But this awe is experienced only by someone who has been very well trained and has developed technique.
 In the study of creativity, you can't be creating anything with less than 10 years of technichal knowledge immersion in a particular field. 
 
