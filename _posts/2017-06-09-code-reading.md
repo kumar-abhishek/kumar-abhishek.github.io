@@ -3,10 +3,8 @@ layout: post
 title: "Code reading"
 date: 2017-06-09
 ---
-## Best source codes to read
-- [ ] [SQLite](https://www.sqlite.org/src/doc/trunk/README.md)
-(Great design, great code, great comments. All ANSI C.
-permalinkembedsavegive gold)
+### Best source codes to read
+- [ ] [SQLite](https://www.sqlite.org/src/doc/trunk/README.md) (Great design, great code, great comments. All ANSI C)
 
 
 
