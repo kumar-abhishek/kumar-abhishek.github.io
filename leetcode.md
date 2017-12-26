@@ -803,7 +803,7 @@ public class Solution {
             return node;
         }
     }
-    int[][] distance = {{1,0},{-1,0},{0,1},{0,-1}};
+    //int[][] distance = {{1,0},{-1,0},{0,1},{0,-1}};
     public int numIslands(char[][] grid) {  
         if (grid == null || grid.length == 0 || grid[0].length == 0)  {
             return 0;  
