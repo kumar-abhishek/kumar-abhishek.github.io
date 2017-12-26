@@ -692,7 +692,7 @@ Caveats:
 3. preorder.pop(0) is ok since ignorer.index anyways takes linear time.
 
 Recommended approach
-```
+```java
 public TreeNode buildTree(int[] preorder, int[] inorder) {
     return helper(0, 0, inorder.length - 1, preorder, inorder);
 }
@@ -714,7 +714,7 @@ public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int
 }
 ```
 20. LCA of Binary Tree:
-```
+```python
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
         """
@@ -736,7 +736,7 @@ class Solution(object):
 21. Find number of islands . Ans
 Caveat: Note that you only need to do 4 recursive calls.
 Time complexity: O(ROW x COL)
-```
+```python
 class Solution(object):
     def isSafe(self, row, col, grid, visited, rows, cols):
         if 0<=row<rows and 0<=col<cols and grid[row][col] == '1' and visited[row][col] is False:
@@ -768,10 +768,10 @@ class Solution(object):
                     self.DFS(i, j, grid, visited, rows, cols)
                     count += 1
         return count
-
+```
 
 By union find [More about union find here: http://algs4.cs.princeton.edu/15uf/UF.java.html]
-
+```java
 public class Solution {
     class UF{
         int[] father;
