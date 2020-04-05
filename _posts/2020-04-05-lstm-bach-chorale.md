@@ -269,4 +269,4 @@ model_gru.fit_generator(generator, epochs=500, validation_data=validation_genera
 ```
 
 ##### References
-[How to Use the TimeseriesGenerator for Time Series Forecasting in Keras](https://medium.com/r/?url=https%3A%2F%2Fmachinelearningmastery.com%2Fhow-to-use-the-timeseriesgenerator-for-time-series-forecasting-in-keras%2F)
+[How to Use the TimeseriesGenerator for Time Series Forecasting in Keras](https://machinelearningmastery.com/how-to-use-the-timeseriesgenerator-for-time-series-forecasting-in-keras/)
