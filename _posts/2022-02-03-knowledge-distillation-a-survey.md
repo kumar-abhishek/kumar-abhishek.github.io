@@ -3,7 +3,6 @@ layout: post
 title: "Knowledge Distillation — A survey"
 date: 2022-02-13
 ---
-# Knowledge Distillation — A survey
 
 This blog is mostly my learnings from the paper: Knowledge Distillation: A Survey and I try to present my summary which should hopefully be easier to follow.
 
