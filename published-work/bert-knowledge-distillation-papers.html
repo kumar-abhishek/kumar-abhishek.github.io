@@ -1,0 +1,245 @@
+---
+layout: default
+title:  8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP
+---
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+<h1>8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP</h1>
+<p>The article summarizes eight papers carefully selected from many papers related to BERT knowledge distillation. NLP model compression and acceleration is an active area of research and widely adapted in the industry to deliver low latency features and services to end users. </p>
+<p>To put it bluntly, the BERT model is used for converting words into numbers and enables you to train machine learning models on text data. Why? Because the machine learning models take input as numbers and not words.</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_11.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /><br />
+<font size="-1">Image from <a href="https://arxiv.org/pdf/1810.04805.pdf" rel="noopener" target="_blank">Devlin et al., 2019</a></font></center></p>
+<p>&nbsp;</p>
+<h1>Why is BERT so Popular?</h1>
+<p>&nbsp;</p>
+<p>First and foremost, BERT is a language model that amplifies the high performance of several tasks. BERT (Bidirectional Encoder Representations from Transformers), published in 2018, triggered a fuss in the community of machine learning by providing a neoteric achieved outcomes in a broad spectrum of NLP tasks, namely language understanding, and question-answering.</p><div style="text-align: center" class="kdnug-9950a4db70b39e74082632dd469f9f52 kdnug-ros-mobile-in-content" id="kdnug-9950a4db70b39e74082632dd469f9f52"></div>
+<p>The main attraction of BERT is employing the bidirectional training of Transformer, a prominent attention model for language modeling. But, as for my narration, here are a few things that make BERT so much better:</p>
+<ul>
+<li>It is open-source
+<li>The best technique in NLP to grasp the context-heavy texts
+<li>Bidirectional nature
+</ul>
+<p>All of the papers present a particular point of view of findings in the BERT utilization.</p>
+<p>&nbsp;</p>
+<h1>Paper 1</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/abs/1910.01108" rel="noopener" target="_blank">DistilBERT, a distilled version of BERT: smaller, faster, cheaper, and lighter</a></strong></p>
+<p>Authors propose a technique to pre-train a smaller general-purpose language representation model, termed DistilBERT, which can then be fine-tuned with good performances on a wide range of tasks like its larger counterparts. While most prior works investigated the use of distillation for building task-specific models, we leverage knowledge distillation during the pre-training phase. We show that it is possible to reduce the size of a BERT model by 40% while retaining 97% of its language understanding capabilities and being 60% faster. Loss is threefold, combining language modeling loss, distillation loss, and cosine-distance loss. The data used the same corpus as the original BERT model. Further, <strong>DistilBERT</strong> was trained on eight 16GB V100 GPUs for around 90 hours.</p>
+<p>Let’s assume</p>
+<p>For an input x, the teacher outputs:</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_10.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="50%" /><br />
+<font size="-1"><a href="https://towardsdatascience.com/distillation-of-bert-like-models-the-theory-32e19a02641f" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p>And the student outputs:</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_9.png" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="50%" /><br />
+<font size="-1"><a href="https://towardsdatascience.com/distillation-of-bert-like-models-the-theory-32e19a02641f" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p>Consider that softmax and the notations that come with it; we’ll get back to it later. Nevertheless, if we want T and S to be close, we can apply a cross-entropy loss to S with T as a target. That is what we call teacher-student cross-entropy loss:</p>
+<ul>
+<li>Distillation loss: this loss is the same as the typical Knowledge distillation loss:
+</ul>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_12.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="50%" /><br />
+<font size="-1"><a href="https://towardsdatascience.com/distillation-of-bert-like-models-the-theory-32e19a02641f" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<ul>
+<li>Masked language modeling loss(MLM)
+<li>Cosine embedding loss(Lcos) was found to be beneficial, which aligned the direction of student and teacher hidden state vectors.
+</ul>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_8.png" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="50%" /><br />
+<font size="-1">T(x) is the teacher vector output, and S(x) is the student vector output <a href="https://towardsdatascience.com/distillation-of-bert-like-models-the-theory-32e19a02641f" rel="noopener" target="_blank">Source.</a></font></center><br />
+&nbsp; </p>
+<p><strong>Key takeaway: </strong>This is an online distillation technique where the teacher and student models are trained.</p>
+<p>&nbsp;</p>
+<h1>Paper 2</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/pdf/1911.03829.pdf" rel="noopener" target="_blank">Distilling Knowledge Learned in BERT for Text Generation</a></strong></p>
+<p>This paper presents a generic technique for using pre-trained language models to further refine text generation, excluding the specific parameter sharing, feature extraction, or augmenting with auxiliary tasks. Their presented Conditional MLM mechanism leverages unsupervised language models pre-trained on a large corpus followed by readjusting to supervised sequence-to-sequence tasks. The distillation approach they offered indirectly impacts the text generation model by delivering soft-label distributions only; hence is model-agnostic. Keys points are mentioned below.</p>
+<ul>
+<li>MLM objective that BERT is trained with is not auto-regressive; it’s trained in a way that looks at both past and future context.
+<li>A novel C-MLM(conditional Masked language modeling) task requires additional, conditional input.
+</ul>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_13.png" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /><br />
+<font size="-1">Illustration of distilling knowledge from BERT for text generation. <a href="https://arxiv.org/pdf/1911.03829.pdf" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p>Furthermore, the knowledge distillation technique used here is the same as the one in the original Distillation <a href="https://arxiv.org/abs/1503.02531" rel="noopener" target="_blank">research paper, </a>where we train the student network on the soft labels generated by the teacher network.</p>
+<p><strong>So, what makes this research paper stand out from the rest? Here is the explanation.</strong></p>
+<p>The key idea here is to distill the knowledge in BERT into a student model that can generate text, while previous works focused only on model compression to do the same task as the teacher model. Then, a fine-tuning of the BERT model is done, so that fine-tuned model can be used for text generation.</p>
+<p>Let’s take the use case of language translation, X is the source language sentence, and Y is the target language sentence.</p>
+<p><strong>First Phase:</strong> Fine-tuning of the BERT model</p>
+<ul>
+<li>Input data: Concatenated X and Y with 15% of the tokens in Y randomly masked
+<li>Labels: masked tokens from Y
+</ul>
+<p><strong>Second Phase:</strong> Knowledge distillation of fine-tuned BERT model to Seq2Seq model</p>
+<ul>
+<li>Teacher: fine-tuned BERT model from the first phase
+<li>Student: Seq2Seq model, for example, attention-based RNN, Transformer, or any other sequence-generation models
+<li>Input data &amp; Label: soft targets from fine-tuned BERT model
+</ul>
+<p>&nbsp;</p>
+<h1>Paper 3</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/pdf/1909.10351.pdf" rel="noopener" target="_blank">TinyBERT: Distilling BERT for Natural Language Understanding</a></strong></p>
+<p>The article proposes a novel Transformer distillation technique exclusively intended for knowledge distillation (KD) of the Transformer-based models. By leveraging this novel KD approach, the heap of knowledge encoded in a large teacher BERT can be efficaciously shifted to a small student Tiny-BERT. Then, we introduce a new two-stage learning framework for TinyBERT, which performs Transformer distillation at both the pretraining and task-specific learning stages. This framework ensures that TinyBERT can capture BERT's general domain and task-specific knowledge.</p>
+<p>TinyBERT with four layers is empirically effective and achieves more than 96.8% of the performance of its teacher BERT-Base on the GLUE benchmark while being 7.5x smaller and 9.4x faster on inference. TinyBERT with four layers is also significantly better than 4-layer state-of-the-art baselines on BERT distillation, with only about 28% parameters and about 31% inference time. Moreover, TinyBERT, with six layers, performs on par with its teacher BERT-Base.</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_15.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /><br />
+<font size="-1"><a href="https://arxiv.org/pdf/1909.10351.pdf" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p>Moreover, this article proposed three main components for distilling transformer networks.</p>
+<ol>
+<li><strong>Transformer-layer distillation:</strong> this includes attention-based distillation and hidden states-based distillation:
+</ol>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_14.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="70%" /><br />
+<font size="-1"><a href="https://arxiv.org/pdf/1909.10351.pdf" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<ol start="2">
+<li><strong>Embedding layer distillation: </strong>knowledge distillation is done for the embedding layer just like it was done for the hidden states-based distillation
+<li><strong>Prediction layer distillation</strong>: knowledge distillation is done w.r.t the predictions obtained from the teacher model, just like in the original work of <a href="https://arxiv.org/abs/1503.02531" rel="noopener" target="_blank">Hinton</a>. Moreover, the overall loss for the TinyBERT model combines the losses of all the three above:
+</ol>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_3.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="50%" /><br />
+<font size="-1"><a href="https://arxiv.org/pdf/1909.10351.pdf" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p>The main steps in TinyBERT training are as follows:</p>
+<ul>
+<li><strong>General distillation</strong>: Take original BERT without fine-tuning as a teacher and a large-scale text corpus as training data. Now perform the Transformer distillation on text from the general domain to get general TinyBERT that can be further fine-tuned for downstream tasks. This generic TinyBERT performs worse than BERT because of the fewer layers, neurons, etc.
+<li><strong>Task-specific distillation</strong>: Fine-tuned BERT is used as the teacher, and training data is the task-specific training set.
+</ul>
+<p><strong>Key takeaway:</strong> This is an offline distillation technique where the teacher model BERT is already pre-trained. Then they did two separate distillations: one for generic learning and another for task-specific learning. The first step of generic distillation involves distillation for all kinds of layers: attention layers, embedding layers, and prediction layers.</p>
+<p>&nbsp;</p>
+<h1>Paper 4</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/abs/2004.02178" rel="noopener" target="_blank"><strong>FastBERT: a Self-distilling BERT with Adaptive Inference Time</strong></a></strong></p>
+<p>They propose a fresh new speed-tunable FastBERT with adaptive inference time. The speed at inference can be flexibly adjusted under varying demands, while redundant calculation of samples is avoided. Moreover, this model adopts a unique self-distillation mechanism for fine-tuning, further enabling a greater computational efficacy with minimal loss in performance. Our model achieves promising results in twelve English and Chinese datasets. It can speed up by a wide range from 1 to 12 times than BERT if given different speedup thresholds to make a speed-performance tradeoff.</p>
+<p>Comparison with similar work:</p>
+<ol>
+<li><strong>TinyBERT: </strong>performs 2-stage learning using both general-domain and task-specific fine-tuning.
+<li><strong>DistilBERT:</strong> introduces triple loss
+</ol>
+<p>&nbsp;</p>
+<h2>What makes FastBERT better?</h2>
+<p>&nbsp;</p>
+<p>This work applies <strong>self-distillation</strong>(training phase)and <strong>adaptive mechanism </strong>(during inference phase) techniques to NLP language models for efficiency improvements for the first time.</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_16.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /><br />
+<font size="-1"><a href="https://arxiv.org/abs/2004.02178" rel="noopener" target="_blank">Source</a></font></center></p>
+<p>&nbsp;</p>
+<h3><strong>The Model Architecture</strong></h3>
+<p>&nbsp;</p>
+<p>FastBERT model consists of backbone and branches:</p>
+<ol>
+<li><strong>Backbone</strong>: It has three parts: embedding layer, encoder containing stacks of Transformer blocks, and the teacher classifier. The embedding and encoder layers are the same as those of BERT. Finally, we have a teacher classifier that extracts task-specific features for downstream tasks and uses a softmax function.
+<li><strong>Branches</strong>: These contain the student classifiers that
+</ol>
+<ol>
+<li>have the same architecture as the teacher
+<li>are added to the output of each transformer block to enable early outputs
+</ol>
+<p>&nbsp;</p>
+<h3><strong>Training Stages</strong></h3>
+<p>&nbsp;</p>
+<p>It uses separate training steps for backbone and student classifiers. Parameters in one module are always frozen while another module is being trained. Three steps:</p>
+<ol>
+<li><strong>Backbone pre-training</strong>: Typical pre-training of the BERT model is used. No changes here. Highly-quality trained models can be freely loaded in this step.
+<li><strong>Backbone fine-tuning</strong>: For each downstream task, task-specific data is used to fine-tune both the backbone and teacher classifier. No student classifier is enabled at this stage.
+<li><strong>Self-distillation of student classifiers</strong>: Now that our teacher model is well-trained, we take its output. This soft-label output is high-quality, containing both original embedding and generalized knowledge. These soft labels are used to train the student classifiers. We are free to use an unlimited amount of unlabeled data here. <i>This work differs from previous work in that this work uses the same model for teacher and student models.</i>
+</ol>
+<p>&nbsp;</p>
+<h3><strong>Adaptive inference</strong></h3>
+<p>&nbsp;</p>
+<p>Let’s talk about inference time. With FastBERT, the inference is performed adaptively, i.e., the number of executed encoding layers within the model can be adjusted according to input sample complexity.</p>
+<p>At each transformer layer, the uncertainty of a student classifier’s output is computed, and it is determined if the inference can be terminated depending upon a threshold. Here is how the adaptive inference mechanism works:</p>
+<ol>
+<li>At each layer of FastBERT, the corresponding student classifier predicts the label of each sample with measured uncertainty.
+<li>Samples with an uncertainty below a certain threshold will be sifted to early outputs, while ones with uncertainty above the threshold will move onto the next layer.
+<li>With a higher threshold, fewer samples are sent to higher layers keeping the inference speed faster and vice versa.
+</ol>
+<p>&nbsp;</p>
+<h1>Paper 5</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/abs/1903.12136" rel="noopener" target="_blank">Distilling Task-Specific Knowledge from BERT into Simple Neural Networks</a></strong></p>
+<p>In this paper, the authors exhibit that rudimentary, lightweight neural networks can even be made competitive apart from architecture modifications, external training data, or additional input features. They propose distilling knowledge from BERT into a single-layer, bidirectional long short-term memory network (BiLSTM) and its siamese equivalent for sentence-pair tasks. Throughout numerous datasets in paraphrasing, natural language inference, and sentiment classification, they achieve comparable outcomes with ELMo, while using roughly 100 times fewer parameters and 15 times less inference time. Further, their approach includes a fine-tuned BERT for teacher and BiLSTM student models. The primary motivation of this work comprises as follows:</p>
+<ol>
+<li>Can a simple architecture model capture the representation power for text modeling at a level of the BERT model?
+<li>Study effective approaches to transfer knowledge from BERT to a BiLSTM model.
+</ol>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_2.png" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /><br />
+<font size="-1"><a href="https://arxiv.org/pdf/1903.12136.pdf" rel="noopener" target="_blank">Source</a> | <a href="https://www.youtube.com/watch?v=AKCPPvaz8tU" rel="noopener" target="_blank">Reference video by paper authors</a></font></center><br />
+&nbsp; </p>
+<h2>Data Augmentation for Distillation</h2>
+<p>&nbsp;</p>
+<p>A small dataset may not be sufficient for teachers to express their knowledge fully, so the training set is augmented using a large unlabeled dataset with pseudo-labels generated from the teacher model. In this work, a few heuristics are proposed for task-agnostic data augmentation:</p>
+<ol>
+<li><strong>Masking</strong>: randomly replace a word in a sentence with a [MASK] token similar to BERT training.
+<li>POS-guided word replacement: replace a word with another word of the same POS(parts of speech) tag, e.g., “What do pigs eat?” is perturbed to “How do pigs eat?
+<li><strong>N-gram sampling</strong>: a more aggressive form of masking where n-gram samples are chosen from the input example, where n is randomly selected from {1,2,3,4,5}
+</ol>
+<p>&nbsp;</p>
+<h1>Paper 6</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/abs/1908.09355" rel="noopener" target="_blank">Patient Knowledge Distillation for BERT Model Compression</a></strong></p>
+<p>The authors propose a Patient Knowledge Distillation approach to compress an original large model (teacher) into an equally-effective lightweight shallow network (student). Their method is quite distinct from previous knowledge distillation approaches because the earlier methods only use the output from the last layer of the teacher network for distillation; our student model patiently learns from multiple intermediate layers of the teacher model for incremental knowledge extraction, following two strategies:</p>
+<ol>
+<li><strong>PKD-Last</strong>: student model learns from the last <i>k</i> layers of the teacher (assuming that the last layers contain the max information for the student).
+<li><strong>PKD-Skip</strong>: student model learns from every<i> k </i>layer of the teacher.
+</ol>
+<p>They experimented on several datasets across different NLP tasks demonstrating that the proposed PKD approach achieves better performance and generalization than standard distillation methods <a href="https://arxiv.org/abs/1503.02531" rel="noopener" target="_blank">(Hinton et al., 2015)</a>.</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_4.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="60%" /><br />
+<font size="-1"><a href="https://arxiv.org/pdf/1908.09355.pdf" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p><strong>Why not learn from all the hidden states of the teacher model?</strong></p>
+<p>The reason is that it can be computationally very expensive and can introduce noise into the student model.</p>
+<p>&nbsp;</p>
+<h1>Paper 7</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/pdf/2004.02984.pdf" rel="noopener" target="_blank"><strong>MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices</strong></a></strong></p>
+<p>They propose MobileBERT for compressing and accelerating the popular BERT model. Like the original BERT, MobileBERT is task-agnostic; that is, it can be generically applied to various downstream NLP tasks via simple fine-tuning. MobileBERT is a thin version of BERTʟᴀʀɢᴇ, while equipped with bottleneck structures and a carefully designed balance between self-attentions and feed-forward networks.</p>
+<p>&nbsp;</p>
+<h2>Training Steps</h2>
+<p>&nbsp;</p>
+<p><i>Step one: </i>first train a specially designed teacher model, an inverted bottleneck incorporated BERTʟᴀʀɢᴇ model.</p>
+<p><i>Step two: </i>conduct knowledge transfer from this teacher to MobileBERT.</p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_5.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /><br />
+<font size="-1">Architecture visualization of transformer blocks within (a) BERT, (b) MobileBERT teacher, and © MobileBERT student. The green trapezoids marked with “Linear” are referred to as bottlenecks. <a href="https://arxiv.org/pdf/2004.02984.pdf" rel="noopener" target="_blank">Source</a></font></center><br />
+&nbsp; </p>
+<p>(a) BERT; (b) Inverted-Bottleneck BERT (IB-BERT); and © MobileBERT. In (b) and ©, red lines denote inter-block flows while blue lines intra-block flow. MobileBERT is trained by layer-to-layer imitating IB-BERT.</p>
+<p>If you have made it this far, you deserve a high-five. MobileBERT presents <i>bottlenecks</i> in transformer blocks, which distills the knowledge out of larger teachers into smaller students more smoothly. This approach decreases the width instead of the depth of the student, which is famous for generating a more proficient model which yields true in the given experiments. MobileBERT underlines the conviction that it’s achievable to make a student model that can be fine-tuned after the initial distillation process.</p>
+<p>Moreover, the outcomes also indicate that this holds true in practice, as MobileBERT can attain 99.2% of BERT-base’s performance on GLUE with 4x fewer parameters and 5.5x faster inference on a Pixel 4 phone!</p>
+<p>&nbsp;</p>
+<h1>Paper 8</h1>
+<p>&nbsp;</p>
+<p><strong><a href="https://arxiv.org/pdf/1904.09482.pdf" rel="noopener" target="_blank">Improving Multi-Task Deep Neural Networks via Knowledge Distillation for Natural Language Understanding</a></strong></p>
+<p>The key focus of the paper is as follows:</p>
+<ol>
+<li>Train a multi-task neural net model which combines loss across multiple natural language understanding tasks.
+<li>Generate an ensemble of multiple models from the first step, which are essentially obtained by training multiple multi-task models from scratch
+<li>The final step is to knowledge distill the ensemble of models from the previous step.
+</ol>
+
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_6.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /></center><br />
+&nbsp; </p>
+<p>The architecture of the MT-DNN model for representation learning <a href="https://arxiv.org/abs/1902.10461" rel="noopener" target="_blank">(Liu et al., 2019)</a>. The lower layers are shared across all tasks, while the top layers are task-specific. The input X (either a sentence or a set of sentences) is first represented as a sequence of embedding vectors, one for each word, in l1. Then the Transformer encoder captures the contextual information for each word and generates the shared contextual embedding vectors in l2. Finally, additional task-specific layers generate task-specific representations for each task, followed by operations necessary for classification, similarity scoring, or relevance ranking. <a href="https://arxiv.org/pdf/1904.09482.pdf" rel="noopener" target="_blank">Source</a></p>
+<p>&nbsp;<br />
+<center><img src="https://www.kdnuggets.com/wp-content/uploads/abhishek_eight_innovative_bert_knowledge_distillation_papers_changed_nlp_landscape_7.jpg" alt="8 Innovative BERT Knowledge Distillation Papers That Have Changed The Landscape of NLP" width="100%" /></center><br />
+&nbsp; </p>
+<p>Process of knowledge distillation for multi-task learning. A set of tasks where there is task-specific labeled training data are picked. Then, an ensemble of different neural nets (teacher) is trained for each task. The teacher is used to generate a set of soft targets for each task-specific training sample. Given the soft targets of the training datasets across multiple tasks, a single MT-DNN (student) is trained using multi-task learning and backpropagation as described in Algorithm 1, except that if task t has a teacher, the task-specific loss in Line 3 is the average of two objective functions, one for the correct targets and the other for the soft targets assigned by the teacher. <a href="https://arxiv.org/pdf/1904.09482.pdf" rel="noopener" target="_blank">Source</a></p>
+<p>Achievements: On the GLUE datasets, the distilled MT-DNN creates a new state-of-the-art result on 7 out of 9 NLU tasks, including the tasks with no teacher, pushing the GLUE benchmark (single model) to 83.7%.</p>
+<p>We show that the distilled MT-DNN retains nearly all of the improvements achieved by ensemble models while keeping the model size the same as the vanilla MT-DNN model.</p>
+<p><strong>The EndNote</strong></p>
+<p>Contemporary state-of-the-art NLP models are difficult to be utilized in production. Knowledge distillation offers tools for tackling such issues along with several others, but it has its quirks.</p>
+<p>&nbsp;</p>
+
+
+<p><a target="_blank" href="https://www.kdnuggets.com/2022/09/eight-innovative-bert-knowledge-distillation-papers-changed-nlp-landscape.html">Originally published here</a>.</p>
