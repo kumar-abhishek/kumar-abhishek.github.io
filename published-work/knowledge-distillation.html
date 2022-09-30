@@ -1,0 +1,130 @@
+---
+layout: default
+title: [Paper Summary] Knowledge Distillation — A survey
+---
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+
+<h1>[Paper Summary] Knowledge Distillation — A survey</h1>
+<p>
+	<ul>
+		<li>This blog is mostly my learnings from the paper: Knowledge Distillation: A Survey and I try to present my summary which should hopefully be easier to follow.</li>
+	</ul>
+</p>
+<h2>Problem</h2>
+<p>Deep learning models being huge with billions of parameters, are very difficult to deploy to devices with limited resources like phones & embedded devices or to be used for real-time inferencing or serving where the typical latency requirements are in milliseconds(≤500 ms).</p>
+
+<h2>Solution</h2>
+<p>
+	<ul>
+		<li>One of the popular model compression and acceleration techniques is the knowledge distillation(KD) technique, where we transfer knowledge from a large model to a small model.</li>
+		<li>KD system has 3 key components: knowledge, distillation algorithm, teacher-student architecture</li>
+	</ul>
+</p>
+
+
+<h2>Knowledge</h2>
+<p>
+	Different kinds of knowledge can be
+	<ul>
+		<li><b>Response-based Knowledge:</b> this knowledge mimics the final prediction of the teacher model.</li>
+	</ul>
+</p>
+
+<h2>Knowledge</h2>
+<p>
+	Different kinds of knowledge can be
+	<ul>
+		<li><b>Response-based Knowledge:</b> this knowledge mimics the final prediction of the teacher model.</li>
+	</ul>
+</p>
+<img src="https://miro.medium.com/max/1050/1*1p7H2hSUfuCHAu0_4l3Q7g.png" />
+<p>
+	<ul>
+		<li><b>Feature-based knowledge:</b> It’s well known how deep neural networks use various layers for various kinds of feature representation. On the same note, both the output of the last layer(response-based knowledge) and the output of intermediate layers are used as knowledge to supervise the training of the student model.</li>
+	</ul>
+</p>
+<img src="https://miro.medium.com/max/640/1*FFHR3coJJz_9vfpZX9PKHw.png" />
+<p>
+	<ul>
+		<li><b>Relation-based knowledge (also called Shared representation knowledge):</b> this knowledge explores the relationship between intermediate layers, for example using inner product between features from 2 different layers as knowledge. More concretely, teacher’s knowledge about the relation between different input examples is transferred to the student model:</li>
+	</ul>
+</p>
+
+<img src="https://miro.medium.com/max/1052/1*5vDdv1UEVsOQSRKAxqXklw.png" /><br />
+<img src="https://miro.medium.com/max/1400/1*7K6cX6QstfYXh_YLFvmGBw.png" />
+
+<h2>Distillation schemes</h2>
+<p>
+	3 main categories depending upon whether teacher and student models are simultaneously updated or not:
+	<ul>
+		<li><b>Offline distillation:</b> it’s the easiest to implement. A teacher model is first pre-trained on a training dataset and knowledge from the teacher model is transferred to train the student model.</li>
+		<li><b>Online distillation:</b> Teacher and student models are updated simultaneously in the same training process. We can parallelize the training here by using several distribution strategies(data and/or model), making this process efficient.</li>
+		<li><b>Self-distillation:</b> teacher and student models are of the same size and same architecture.These can either be a single model representing teacher as well as student or we may have two instances of the same model: one being teacher and another being student. The main idea here is that knowledge from deeper layers can be used to train the shallow layers. The process usually makes the student model more robust and accurate.</li>
+	</ul>
+</p>
+<img src="https://miro.medium.com/max/640/1*maSLJNT6o72zf9v8jzl_7A.png" />
+
+<h2>Teacher-student architecture:</h2>
+<p>
+	The most common student architectures are:
+	<ul>
+		<li>a quantized version of the teacher model</li>
+		<li>a smaller version of the teacher model with few layers and fewer neurons per layer</li>
+		<li>same model as the teacher</li>
+	</ul>
+</p>
+
+
+<h2>Distillation algorithms</h2>
+<p>
+	The most common student architectures are:
+	<ul>
+		<li>Adversarial distillation: Uses the concept of Generative adversarial networks(GANs) where a generator model poses several difficult questions to the teacher model and the student model learns how to answer those questions from the teacher.</li>
+		<li>Multi-teacher distillation: multiple teacher models are used to provide distinct kinds of knowledge to the student model</li>
+		<li>Cross-modal(cross-disciplinary) distillation: The teacher model which is trained in one modality(say vision domain) is used to train a student model from a different modality(say text-domain). Example application: visual question-answering</li>
+		<li>Graph-based distillation²: Knowledge of the embedding procedure of the teacher network is distilled into a graph, which is in turn used to train the student model</li>
+		<li>Attention-based distillation: here attention maps are used to transfer knowledge about feature embeddings to the student model</li>
+		<li>Data-free distillation: in absence of a training dataset(due to privacy, security, etc. issues), synthetic data is generated from the teacher model or GANs are used.</li>
+		<li>Quantized distillation: transfer knowledge from a high-precision teacher(say 32-bit) to a low-precision student model(say 8-bit)</li>
+		<li>Lifelong distillation: Continuously learned knowledge of the teacher model is transferred to the student model (Youtube video reference)</li>
+		<li>Neural architecture search(NAS)-based distillation: Use AutoML to automatically identify the appropriate student model in terms of deciding the apt capacity gap between teacher and student models.</li>
+	</ul>
+</p>
+
+
+
+<h2>Performance aspects and conclusions</h2>
+<p>
+	<ul>
+		<li>offline distillation does feature-based knowledge transfer</li>
+		<li>online distillation does response-based knowledge transfer</li>
+		<li>the performance of student models can be improved by knowledge transfer from teacher(high-capacity) models</li>
+	</ul>
+</p>
+
+
+<h2>Applications of KD</h2>
+<p>
+	<ul>
+		<li>KD has found applications in visual recognition, NLP, speech recognition, various other applications</li>
+	</ul>
+</p>
+
+<h2>Challenges</h2>
+<p>
+	<ul>
+		<li>It’s a challenge to measure the quality of knowledge or quality of student-teacher architecture</li>
+	</ul>
+</p>
+
+<h2>Future directions</h2>
+<p>
+	<ul>
+		<li>It would be useful to integrate KD with other learning schemes like reinforcement learning, adversarial learning, etc.</li>
+	</ul>
+</p>
+
+
+<p><a target="_blank" href="https://medium.com/@kumarabhishek/paper-summary-knowledge-distillation-a-survey-4a6663b4686c">Originally published here</a>.</p>
