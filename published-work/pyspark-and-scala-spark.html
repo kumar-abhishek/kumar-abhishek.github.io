@@ -1,0 +1,53 @@
+---
+layout: default
+title:  PySpark and Scala Spark
+---
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+<h1>PySpark and Scala Spark</h1>
+<p>
+	Apache Spark is written in Scala, and using PySpark, you can write Spark applications in Python.
+</p>
+<p><i>Have you ever wondered how PySpark works even though the underlying framework i.e. Apache Spark is written in Scala?</i></p>
+<p>The answer is that PySpark uses a library called Py4J. Py4J enables Python programs to access Java objects. So, PySpark offloads all the Big Data processing work to the Scala Spark framework. That means that PySpark is just an interface to use Apache Spark in Python.</p>
+
+<p><i>Let’s ask a more deep and basic question: how does Python work? We keep hearing that Java programs run within a Java Virtual Machine(JVM), but what about Python?</i></p>
+<p>
+	The simple answer is that Python programs run in their virtual machine(implemented in C; hence Python is called CPython).
+</p>
+<p>
+	Back to how PySpark uses Scala Spark: Py4J provides a GatewayServer instance that allows Python programs to communicate with JVM through a local network socket.
+</p>
+
+<p>
+	We need to start the gateway so it can accept incoming Python requests:
+</p>
+<p style="background-color:#f2f2f2; padding:22px">
+GatewayServer gs = new GatewayServer(new StackEntryPoint());<br />
+gs.start();
+</p>
+<img src="https://miro.medium.com/max/640/1*FFHR3coJJz_9vfpZX9PKHw.png" />
+<p>
+Now, we can call Java methods from python code as if they were python methods:
+</p>
+<p style="background-color:#f2f2f2; padding:22px">
+from py4j.java_gateway import JavaGateway<br />
+gw = JavaGateway()&nbsp;&nbsp;&nbsp;&nbsp;                        # connect to the JVM<br />
+java_object = gw.jvm.mypackage.MyJavaClass()&nbsp;&nbsp;&nbsp;&nbsp;  # invoke constructor<br />
+other_object = java_object.doThat()<br />
+gateway.jvm.java.lang.System.out.println('Hello World!') 
+</p>
+<p>
+	One part of Py4J runs in the Python VM, so it is always “up to date” with the latest version of Python. The other part runs in the JVM we want to call.
+</p>
+<p>
+P4J uses its protocol to communicate via sockets instead of JNI to optimize certain cases, manage memory, etc:
+</p>
+<img src="https://miro.medium.com/max/640/0*jrZ2EHW2_fXVL3rI.png" />
+<p>
+	Exploring these enhanced my understanding of how things work under the hood. I hope this is helpful to you as well.
+</p>
+
+
+<p><a target="_blank" href="https://medium.com/@kumarabhishek/pyspark-and-scala-spark-7a255639a9b0">Originally published here</a>.</p>
